@@ -1,20 +1,21 @@
+/*
+ *  Author: Kaleb Jubar
+ *  Created: 6 Nov 2024, 9:40:17 AM
+ *  Last update: 6 Nov 2024, 10:38:27 AM
+ *  Copyright (c) 2024 Kaleb Jubar
+ */
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+import { AppScreen } from './src/screens/AppScreen';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    return (
+        <NavigationContainer>
+            <StatusBar style="light" />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+            <AppScreen />
+        </NavigationContainer>
+    );
+}
