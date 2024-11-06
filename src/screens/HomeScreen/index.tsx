@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 10:23:44 AM
- *  Last update: 6 Nov 2024, 11:56:51 AM
+ *  Last update: 6 Nov 2024, 4:51:27 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -41,6 +41,7 @@ export function HomeScreen(): JSX.Element {
                         backgroundColor: primaryColor,
                     },
                     headerTintColor: "white",
+                    headerBackTitle: "Books",
                 }}
             />
         </Stack.Navigator>
