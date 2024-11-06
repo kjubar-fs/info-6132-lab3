@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 9:47:58 AM
- *  Last update: 6 Nov 2024, 10:52:20 AM
+ *  Last update: 6 Nov 2024, 4:50:14 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -11,6 +11,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import { HomeScreen } from "../HomeScreen";
 import { BorrowedScreen } from "../BorrowedScreen";
+import { Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,10 +20,10 @@ export function AppScreen(): JSX.Element {
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
-                tabBarStyle: {
+                tabBarStyle: Platform.OS === "android" ? {
                     height: 60,
                     paddingBottom: 8,
-                },
+                } : undefined,
             }}
         >
             <Tab.Screen
