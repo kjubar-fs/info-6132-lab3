@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 10:23:44 AM
- *  Last update: 6 Nov 2024, 11:19:12 AM
+ *  Last update: 6 Nov 2024, 11:56:51 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -11,7 +11,15 @@ import { BookDetailScreen } from "../BookDetailScreen";
 
 import { primaryColor } from "../../util/constants";
 
-const Stack = createNativeStackNavigator();
+// type screen params
+export type HomeStackParamList = {
+    bookList: undefined,    // no params
+    bookDetail: {
+        bookId: string,
+    },
+};
+
+const Stack = createNativeStackNavigator<HomeStackParamList>();
 
 export function HomeScreen(): JSX.Element {
     return (
