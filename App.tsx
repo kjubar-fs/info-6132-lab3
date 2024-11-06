@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 9:40:17 AM
- *  Last update: 6 Nov 2024, 10:45:07 AM
+ *  Last update: 6 Nov 2024, 10:57:03 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { StatusBar } from 'expo-status-bar';
@@ -16,6 +16,7 @@ const BooksTheme: Theme = {
     colors: {
         ...DefaultTheme.colors,
         primary: primaryColor,
+        background: "#FEFEFE",
     },
 }
 
