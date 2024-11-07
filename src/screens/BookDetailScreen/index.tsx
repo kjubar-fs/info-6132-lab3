@@ -1,10 +1,10 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:00:26 AM
- *  Last update: 7 Nov 2024, 12:37:24 PM
+ *  Last update: 7 Nov 2024, 12:46:49 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
-import { Image, ScrollView, Text, TouchableHighlight, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 
 import { useMemo } from "react";
 
@@ -12,18 +12,16 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-import { toggleBookStatus, useBooks } from "../../data/state/books";
-
 import { HomeStackParamList } from "../HomeScreen";
 
 import styles from "./styles";
+import { CheckoutButton } from "../../components/books/CheckoutButton";
 
 // generate prop types for the route object for this screen
 type Props = NativeStackScreenProps<HomeStackParamList, "bookDetail">;
 
 export function BookDetailScreen({ route }: Props): JSX.Element {
     const book = route.params.book;
-    const booksState = useBooks();
 
     /**
      * Function to generate the rating display for this book.
@@ -80,16 +78,7 @@ export function BookDetailScreen({ route }: Props): JSX.Element {
                 <Text style={styles.description}>{book.description.replaceAll("\\n", "\n")}</Text>
             </View>
         </ScrollView>
-        <TouchableHighlight
-            style={[
-                styles.checkOut,
-                { backgroundColor: book.checkedOut ? "#EE7777" : "#77EE77" }
-            ]}
-            onPress={() => { toggleBookStatus(book.id, booksState) }}
-            underlayColor={book.checkedOut ? "#CC4444" : "#44CC44"}
-        >
-            <Text style={styles.checkOutText}>{book.checkedOut ? "Return" : "Check Out"}</Text>
-        </TouchableHighlight>
+        <CheckoutButton book={book} />
         </>
     );
 }
