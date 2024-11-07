@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:35:17 PM
- *  Last update: 7 Nov 2024, 12:30:30 AM
+ *  Last update: 7 Nov 2024, 12:40:40 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createContext, useContext, useMemo, useState } from "react";
@@ -57,11 +57,9 @@ export function useBooks(): BooksState {
  */
 export async function getOrLoadBooks(booksState: BooksState): Promise<Book[]> {
     if (booksState.books) {
-        console.log("getting books from state");
         return booksState.books;
     }
 
-    console.log("getting books from db");
     const books = await loadAllBooks();
 
     if (books) {
