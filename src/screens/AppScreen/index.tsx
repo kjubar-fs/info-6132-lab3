@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 9:47:58 AM
- *  Last update: 6 Nov 2024, 4:50:14 PM
+ *  Last update: 7 Nov 2024, 11:19:25 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -24,6 +24,9 @@ export function AppScreen(): JSX.Element {
                     height: 60,
                     paddingBottom: 8,
                 } : undefined,
+                tabBarLabelStyle: Platform.OS === "android" ? {
+                    fontSize: 13,
+                }: undefined,
             }}
         >
             <Tab.Screen
