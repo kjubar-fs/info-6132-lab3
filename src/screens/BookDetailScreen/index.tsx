@@ -1,10 +1,10 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:00:26 AM
- *  Last update: 7 Nov 2024, 10:48:23 AM
+ *  Last update: 7 Nov 2024, 12:34:57 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, TouchableHighlight, View } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
@@ -21,6 +21,10 @@ type Props = NativeStackScreenProps<HomeStackParamList, "bookDetail">;
 export function BookDetailScreen({ route }: Props): JSX.Element {
     const book = route.params.book;
 
+    /**
+     * Function to generate the rating display for this book.
+     * @returns a View with the generated rating stars and text
+     */
     const generateRatingStars = (): JSX.Element => {
         // number filled is the whole number for the rating
         let numFilled = Math.floor(book.rating);
@@ -60,6 +64,7 @@ export function BookDetailScreen({ route }: Props): JSX.Element {
     const stars = useMemo<JSX.Element>(generateRatingStars, [book.rating]);
 
     return (
+        <>
         <ScrollView style={styles.container} contentContainerStyle={styles.innerContainer}>
             <View style={styles.detailContainer}>
                 <Text style={styles.title}>{book.title}</Text>
@@ -71,5 +76,16 @@ export function BookDetailScreen({ route }: Props): JSX.Element {
                 <Text style={styles.description}>{book.description.replaceAll("\\n", "\n")}</Text>
             </View>
         </ScrollView>
+        <TouchableHighlight
+            style={[
+                styles.checkOut,
+                { backgroundColor: book.checkedOut ? "#EE7777" : "#77EE77" }
+            ]}
+            onPress={() => {}}
+            underlayColor={book.checkedOut ? "#CC4444" : "#44CC44"}
+        >
+            <Text style={styles.checkOutText}>{book.checkedOut ? "Return" : "Check Out"}</Text>
+        </TouchableHighlight>
+        </>
     );
 }

@@ -1,10 +1,12 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 7 Nov 2024, 9:24:25 AM
- *  Last update: 7 Nov 2024, 10:06:06 AM
+ *  Last update: 7 Nov 2024, 12:35:26 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { StyleSheet } from "react-native";
+
+import { lightDropShadowStyle } from "../../util/constants";
 
 export default StyleSheet.create({
     container: {
@@ -14,6 +16,7 @@ export default StyleSheet.create({
     innerContainer: {
         alignItems: "center",
         padding: 20,
+        paddingBottom: 70,
         gap: 30,
     },
 
@@ -32,6 +35,21 @@ export default StyleSheet.create({
         fontSize: 17,
         fontWeight: "300",
         fontStyle: "italic",
+    },
+
+    checkOut: {
+        position: "absolute",
+        bottom: 20,
+        right: 20,
+        padding: 10,
+        borderRadius: 15,
+
+        ...lightDropShadowStyle,
+    },
+
+    checkOutText: {
+        fontSize: 15,
+        fontWeight: "600",
     },
 
     coverImage: {
