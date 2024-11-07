@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:35:17 PM
- *  Last update: 7 Nov 2024, 1:26:26 PM
+ *  Last update: 7 Nov 2024, 1:27:42 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createContext, useContext, useMemo, useState } from "react";
@@ -15,14 +15,14 @@ type BooksUpdate = (newState: Book[]) => void;
 type BooksState = {
     books?: Book[],
     borrowedBooks?: Book[],
-    numCheckedOut?: number,
+    numCheckedOut: number,
     updateBooks: BooksUpdate,
 };
 
 const defaultState: BooksState = {
     books: undefined,
     borrowedBooks: undefined,
-    numCheckedOut: undefined,
+    numCheckedOut: 0,
     updateBooks: (_) => {},
 };
 
