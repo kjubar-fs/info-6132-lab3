@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 1:48:36 PM
- *  Last update: 6 Nov 2024, 11:56:56 PM
+ *  Last update: 7 Nov 2024, 12:11:11 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { View, FlatList } from "react-native";
@@ -26,7 +26,7 @@ export function BookList() {
                 renderItem={({ item }) => (
                     <BookListItem book={item} />
                 )}
-                keyExtractor={(_, ix) => ix.toString()}
+                keyExtractor={(book) => book.id}
                 showsVerticalScrollIndicator={false}
                 style={styles.list}
             />

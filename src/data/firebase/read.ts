@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:47:44 PM
- *  Last update: 6 Nov 2024, 11:55:21 PM
+ *  Last update: 7 Nov 2024, 12:10:46 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { getDocs, query, collection, orderBy } from "firebase/firestore";
@@ -22,7 +22,11 @@ export async function loadAllBooks(): Promise<Book[] | undefined> {
             )
         );
 
-        snapshot.forEach((bookDoc) => books.push(bookDoc.data() as Book));
+        snapshot.forEach((bookDoc) => {
+            const newBook = bookDoc.data() as Book;
+            newBook.id = bookDoc.id;
+            books.push(newBook);
+        });
     } catch (e) {
         console.error(e);
     }

@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 4:55:15 PM
- *  Last update: 6 Nov 2024, 7:09:06 PM
+ *  Last update: 7 Nov 2024, 12:09:41 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { initializeApp } from "firebase/app";
@@ -22,6 +22,7 @@ export const db = getFirestore(app);
 export const booksCollection = "books";
 
 export type Book = {
+    id: string,
     author: string,
     checkedOut: boolean,
     coverURL: string,
