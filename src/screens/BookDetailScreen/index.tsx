@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:00:26 AM
- *  Last update: 7 Nov 2024, 12:46:49 PM
+ *  Last update: 7 Nov 2024, 12:48:55 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { Image, ScrollView, Text, View } from "react-native";
@@ -78,7 +78,7 @@ export function BookDetailScreen({ route }: Props): JSX.Element {
                 <Text style={styles.description}>{book.description.replaceAll("\\n", "\n")}</Text>
             </View>
         </ScrollView>
-        <CheckoutButton book={book} />
+        <CheckoutButton book={book} style={styles.checkOut} />
         </>
     );
 }
