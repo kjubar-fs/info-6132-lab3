@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 7 Nov 2024, 9:24:25 AM
- *  Last update: 7 Nov 2024, 9:40:52 AM
+ *  Last update: 7 Nov 2024, 10:06:06 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { StyleSheet } from "react-native";
@@ -40,8 +40,31 @@ export default StyleSheet.create({
         resizeMode: "contain",
     },
 
+    descriptionContainer: {
+        alignItems: "center",
+        gap: 15,
+    },
+
     description: {
         fontSize: 18,
         textAlign: "justify",
+    },
+
+    ratingContainer: {
+        flexDirection: "row",
+        gap: 15,
+        alignItems: "center",
+        alignSelf: "flex-start",
+    },
+
+    stars: {
+        flexDirection: "row",
+    },
+
+    rating: {
+        fontSize: 16,
+        fontWeight: "300",
+        fontStyle: "italic",
+        color: "#222",
     },
 });
