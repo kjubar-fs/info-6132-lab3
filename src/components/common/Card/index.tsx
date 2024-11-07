@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 10:20:31 AM
- *  Last update: 6 Nov 2024, 11:23:35 PM
+ *  Last update: 7 Nov 2024, 10:53:03 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 
@@ -17,7 +17,7 @@ interface CardProps {
     style?: ViewStyle,
 }
 
-export default function Card({ children, shadowType = "default", style }: CardProps) {
+export function Card({ children, shadowType = "default", style }: CardProps) {
     return (
         <View style={[styles.container, styles[shadowType], style]}>
             {children}
