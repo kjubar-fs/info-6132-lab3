@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:35:17 PM
- *  Last update: 7 Nov 2024, 11:57:58 AM
+ *  Last update: 7 Nov 2024, 1:26:26 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createContext, useContext, useMemo, useState } from "react";
@@ -15,12 +15,14 @@ type BooksUpdate = (newState: Book[]) => void;
 type BooksState = {
     books?: Book[],
     borrowedBooks?: Book[],
+    numCheckedOut?: number,
     updateBooks: BooksUpdate,
 };
 
 const defaultState: BooksState = {
     books: undefined,
     borrowedBooks: undefined,
+    numCheckedOut: undefined,
     updateBooks: (_) => {},
 };
 
@@ -37,13 +39,18 @@ export function BooksProvider({ children }: Props): JSX.Element {
         () => state.books?.filter((book) => book.checkedOut),
         [state.books]
     );
+    // also memoize the number of checked out books
+    const numCheckedOut = useMemo<number>(
+        () => state.books?.filter((book) => book.checkedOut).length || 0,
+        [state.books]
+    );
     
     const updateBooks: BooksUpdate = (newState: Book[]) => {
         setState({ ...state, books: newState });
     };
 
     return (
-        <BooksContext.Provider value={{ ...state, borrowedBooks, updateBooks }}>
+        <BooksContext.Provider value={{ ...state, borrowedBooks, numCheckedOut, updateBooks }}>
             {children}
         </BooksContext.Provider>
     );
