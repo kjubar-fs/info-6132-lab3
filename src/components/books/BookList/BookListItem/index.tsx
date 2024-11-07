@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 1:49:51 PM
- *  Last update: 7 Nov 2024, 11:09:26 AM
+ *  Last update: 7 Nov 2024, 12:39:37 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { View, Text, TouchableHighlight } from "react-native";
@@ -47,13 +47,14 @@ export function BookListItem({ book, disableNav = false }: Props) {
                     </Text>
                 </View>
 
+                {!disableNav && 
                 <View style={styles.disclosure}>
                     <MaterialIcons
                         name="arrow-forward-ios"
                         size={10}
                         color="#888"
                     />
-                </View>
+                </View>}
                 </>
             </TouchableHighlight>
         </Card>
