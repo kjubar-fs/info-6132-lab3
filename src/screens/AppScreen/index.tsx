@@ -1,9 +1,11 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 9:47:58 AM
- *  Last update: 7 Nov 2024, 11:19:25 AM
+ *  Last update: 7 Nov 2024, 2:30:01 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
+import { Platform } from "react-native";
+
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -11,7 +13,6 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 import { HomeScreen } from "../HomeScreen";
 import { BorrowedScreen } from "../BorrowedScreen";
-import { Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,9 +25,9 @@ export function AppScreen(): JSX.Element {
                     height: 60,
                     paddingBottom: 8,
                 } : undefined,
-                tabBarLabelStyle: Platform.OS === "android" ? {
+                tabBarLabelStyle: {
                     fontSize: 13,
-                }: undefined,
+                },
             }}
         >
             <Tab.Screen
