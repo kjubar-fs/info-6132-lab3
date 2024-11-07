@@ -1,31 +1,30 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 2:26:57 PM
- *  Last update: 30 Oct 2024, 12:04:43 PM
+ *  Last update: 7 Nov 2024, 11:05:34 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+    card: {
+        padding: 0,
+    },
+
     container: {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
         gap: 5,
-        padding: 2,
+        padding: 10,
 
         borderRadius: 5,
     },
 
-    flatContainer: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-    },
-
     contentContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-    },
-
-    rowContainer: {
-        flexGrow: 1,
+        flex: 1,
+        gap: 5,
     },
 
     disclosure: {
@@ -33,19 +32,14 @@ export default StyleSheet.create({
         paddingLeft: 10,
     },
 
-    name: {
+    title: {
         fontWeight: "500",
         color: "#222",
+        fontSize: 17,
     },
 
-    source: {
-        fontSize: 13,
-        fontWeight: "300",
-        color: "#444",
-    },
-
-    date: {
-        fontSize: 13,
+    author: {
+        fontSize: 15,
         fontWeight: "300",
     },
 });
