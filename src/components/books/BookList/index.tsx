@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 1:48:36 PM
- *  Last update: 7 Nov 2024, 11:15:26 AM
+ *  Last update: 7 Nov 2024, 1:07:28 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { View, FlatList, Text } from "react-native";
@@ -15,9 +15,10 @@ import styles from "./styles";
 interface Props {
     borrowedOnly?: boolean,
     disableNav?: boolean,
+    showCheckOut?: boolean,
 }
 
-export function BookList({ borrowedOnly = false, disableNav = false }: Props) {
+export function BookList({ borrowedOnly = false, disableNav = false, showCheckOut = false }: Props) {
     const booksState = useBooks();
     const books = borrowedOnly ? booksState.borrowedBooks : booksState.books;
 
@@ -26,7 +27,7 @@ export function BookList({ borrowedOnly = false, disableNav = false }: Props) {
             <FlatList
                 data={books}
                 renderItem={({ item }) => (
-                    <BookListItem book={item} disableNav={disableNav} />
+                    <BookListItem book={item} disableNav={disableNav} showCheckOut={showCheckOut} />
                 )}
                 keyExtractor={(book) => book.id}
                 showsVerticalScrollIndicator={false}
