@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:35:17 PM
- *  Last update: 7 Nov 2024, 12:26:06 AM
+ *  Last update: 7 Nov 2024, 12:30:30 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { createContext, useContext, useMemo, useState } from "react";
@@ -31,7 +31,7 @@ const BooksContext = createContext<BooksState>(defaultState);
 
 export function BooksProvider({ children }: Props): JSX.Element {
     const [state, setState] = useState<BooksState>(defaultState);
-    const borrowedBooks = useMemo(
+    const borrowedBooks = useMemo<Book[] | undefined>(
         () => state.books?.filter((book) => book.checkedOut),
         [state.books]
     );
