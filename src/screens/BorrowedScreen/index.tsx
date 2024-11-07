@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 10:35:06 AM
- *  Last update: 7 Nov 2024, 12:33:56 AM
+ *  Last update: 7 Nov 2024, 12:40:15 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { Text } from "react-native";
@@ -13,7 +13,7 @@ export function BorrowedScreen(): JSX.Element {
     return (
         <ScreenWrapper>
             <Text>Borrowed</Text>
-            <BookList borrowedOnly={true} />
+            <BookList borrowedOnly disableNav />
         </ScreenWrapper>
     );
 }
