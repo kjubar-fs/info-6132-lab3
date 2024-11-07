@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 1:48:36 PM
- *  Last update: 7 Nov 2024, 11:07:14 AM
+ *  Last update: 7 Nov 2024, 11:15:26 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { View, FlatList, Text } from "react-native";
@@ -31,7 +31,13 @@ export function BookList({ borrowedOnly = false, disableNav = false }: Props) {
                 keyExtractor={(book) => book.id}
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.list}
-                ListHeaderComponent={<Text style={styles.header}>All Books</Text>}
+                ListHeaderComponent={<Text style={styles.header}>{borrowedOnly ? "Borrowed Books" : "All Books"}</Text>}
+                ListEmptyComponent={
+                    <Text style={styles.empty}>
+                        No books found!
+                        {borrowedOnly && " Try borrowing some from the list."}
+                    </Text>
+                }
             />
         </View>
     );
