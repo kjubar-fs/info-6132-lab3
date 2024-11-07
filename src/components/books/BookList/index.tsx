@@ -1,10 +1,10 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 1:48:36 PM
- *  Last update: 7 Nov 2024, 12:40:27 AM
+ *  Last update: 7 Nov 2024, 11:07:14 AM
  *  Copyright (c) 2024 Kaleb Jubar
  */
-import { View, FlatList } from "react-native";
+import { View, FlatList, Text } from "react-native";
 
 import { useBooks } from "../../../data/state/books";
 
@@ -30,7 +30,8 @@ export function BookList({ borrowedOnly = false, disableNav = false }: Props) {
                 )}
                 keyExtractor={(book) => book.id}
                 showsVerticalScrollIndicator={false}
-                style={styles.list}
+                contentContainerStyle={styles.list}
+                ListHeaderComponent={<Text style={styles.header}>All Books</Text>}
             />
         </View>
     );
