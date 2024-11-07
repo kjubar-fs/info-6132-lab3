@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 9:40:17 AM
- *  Last update: 6 Nov 2024, 11:47:27 PM
+ *  Last update: 7 Nov 2024, 2:22:11 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { StatusBar } from 'expo-status-bar';
@@ -14,6 +14,7 @@ import { AppScreen } from './src/screens/AppScreen';
 
 import { primaryColor } from './src/util/constants';
 
+// create a custom theme for React Navigation
 const BooksTheme: Theme = {
     ...DefaultTheme,
     colors: {

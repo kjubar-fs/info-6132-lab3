@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 6 Nov 2024, 11:00:17 AM
- *  Last update: 7 Nov 2024, 12:18:48 AM
+ *  Last update: 7 Nov 2024, 2:20:42 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { useEffect, useState } from "react";
@@ -16,7 +16,9 @@ export function BookListScreen(): JSX.Element {
     const booksState = useBooks();
     const [loading, setLoading] = useState<boolean>(true);
 
+    // load the books list when first opening this screen
     useEffect(() => {
+        // run an async IIFE, since we need to await the result but effects can't directly be async
         (async () => {
             await getOrLoadBooks(booksState);
             setLoading(false);

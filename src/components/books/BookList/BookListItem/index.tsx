@@ -1,7 +1,7 @@
 /*
  *  Author: Kaleb Jubar
  *  Created: 29 Oct 2024, 1:49:51 PM
- *  Last update: 7 Nov 2024, 1:07:55 PM
+ *  Last update: 7 Nov 2024, 2:13:57 PM
  *  Copyright (c) 2024 Kaleb Jubar
  */
 import { View, Text, TouchableHighlight } from "react-native";
@@ -28,7 +28,9 @@ interface Props {
 export function BookListItem({ book, disableNav = false, showCheckOut = false }: Props) {
     const nav = useNavigation<NativeStackNavigationProp<HomeStackParamList, "bookDetail">>();
 
+    // get action items to render based on config
     let actionItem = <></>;
+    // nothing to do if nav is disabled and check out is hidden
     if (!disableNav || showCheckOut) {
         actionItem = (
             <View style={styles.actionItems}>
